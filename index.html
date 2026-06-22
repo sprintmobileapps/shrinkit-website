@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary SEO -->
+  <title>ShrinkIt — Compress Images &amp; PDFs on Android, 100% Offline</title>
+  <meta name="description" content="ShrinkIt compresses JPEG, PNG, and WebP images and PDFs directly on your Android device. No cloud, no uploads, no account. Free download on Google Play.">
+  <meta name="keywords" content="image compressor Android, PDF compressor Android, compress photos phone, reduce file size Android, offline image compression, JPEG compressor app, WebP converter Android">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://YOUR_GITHUB_USERNAME.github.io/shrinkit-website/">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://YOUR_GITHUB_USERNAME.github.io/shrinkit-website/">
+  <meta property="og:title"       content="ShrinkIt — Compress Images &amp; PDFs on Android">
+  <meta property="og:description" content="Compress images and PDFs instantly on your Android device. 100% offline. No cloud, no account. JPEG · PNG · WebP · PDF.">
+  <meta property="og:image"       content="https://YOUR_GITHUB_USERNAME.github.io/shrinkit-website/assets/og-image.png">
+  <meta property="og:image:width" content="1264">
+  <meta property="og:image:height" content="683">
+  <meta property="og:site_name"   content="ShrinkIt">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="ShrinkIt — Compress Images &amp; PDFs on Android">
+  <meta name="twitter:description" content="100% offline image and PDF compression for Android. No cloud. No uploads. Free on Google Play.">
+  <meta name="twitter:image"       content="https://YOUR_GITHUB_USERNAME.github.io/shrinkit-website/assets/og-image.png">
+
+  <!-- Structured Data (App) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "ShrinkIt",
+    "operatingSystem": "Android",
+    "applicationCategory": "UtilitiesApplication",
+    "description": "Compress JPEG, PNG, WebP images and PDFs locally on your Android device. No cloud, no uploads, 100% private.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "installUrl": "https://play.google.com/store/apps/details?id=com.sprintapps.shrinkit",
+    "screenshot": "https://YOUR_GITHUB_USERNAME.github.io/shrinkit-website/assets/og-image.png",
+    "softwareVersion": "1.0",
+    "author": {
+      "@type": "Organization",
+      "name": "Sprint Apps"
+    }
+  }
+  </script>
+
+  <!-- Favicon (inline SVG) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%232268E8'/><stop offset='100%25' stop-color='%23003A8F'/></linearGradient></defs><rect width='512' height='512' rx='114' fill='url(%23g)'/><path d='M208,96L256,136L304,96L256,240Z' fill='white'/><path d='M208,416L256,376L304,416L256,272Z' fill='white'/><path d='M96,208L136,256L96,304L240,256Z' fill='white'/><path d='M416,208L376,256L416,304L272,256Z' fill='white'/><circle cx='256' cy='256' r='36' fill='white'/></svg>" type="image/svg+xml">
+
+  <!-- Preconnect for Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════════════════
+       NAVIGATION
+       ══════════════════════════════════════════════════════════ -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main">
+    <div class="nav-inner">
+
+      <a href="/" class="nav-brand" aria-label="ShrinkIt home">
+        <!-- App logo: 4 converging chevrons + center circle
+             Paths from: app/src/main/res/drawable/ic_launcher_foreground.xml
+             Background from: ic_launcher_background.xml (#2268E8 → #003A8F) -->
+        <svg class="nav-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="32" height="32" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="nav-logo-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#2268E8"/>
+              <stop offset="100%" stop-color="#003A8F"/>
+            </linearGradient>
+          </defs>
+          <rect width="512" height="512" rx="114" fill="url(#nav-logo-bg)"/>
+          <path d="M208,96 L256,136 L304,96 L256,240 Z" fill="white"/>
+          <path d="M208,416 L256,376 L304,416 L256,272 Z" fill="white"/>
+          <path d="M96,208 L136,256 L96,304 L240,256 Z" fill="white"/>
+          <path d="M416,208 L376,256 L416,304 L272,256 Z" fill="white"/>
+          <circle cx="256" cy="256" r="36" fill="white"/>
+        </svg>
+        <span class="nav-name">ShrinkIt</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Site sections">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <a href="https://play.google.com/store/apps/details?id=com.sprintapps.shrinkit"
+         class="btn btn-primary btn-sm"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Download ShrinkIt on Google Play (opens in new tab)">
+        Download Free
+      </a>
+
+    </div>
+  </nav>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       HERO
+       ══════════════════════════════════════════════════════════ -->
+  <section class="hero" aria-label="Hero">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+    <div class="hero-content">
+
+      <!-- App badge -->
+      <div class="hero-badge" role="text">Free Android App</div>
+
+      <!-- App logo — large, prominent -->
+      <svg class="hero-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="hero-logo-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#2268E8"/>
+            <stop offset="100%" stop-color="#003A8F"/>
+          </linearGradient>
+        </defs>
+        <rect width="512" height="512" rx="114" fill="url(#hero-logo-bg)"/>
+        <path d="M208,96 L256,136 L304,96 L256,240 Z" fill="white"/>
+        <path d="M208,416 L256,376 L304,416 L256,272 Z" fill="white"/>
+        <path d="M96,208 L136,256 L96,304 L240,256 Z" fill="white"/>
+        <path d="M416,208 L376,256 L416,304 L272,256 Z" fill="white"/>
+        <circle cx="256" cy="256" r="36" fill="white"/>
+      </svg>
+
+      <!-- Condensed headline — the typographic "compression" risk:
+           Barlow Condensed ExtraBold at maximum scale.
+           The condensed type itself is a visual metaphor for shrinking. -->
+      <h1 class="display">
+        Compress<br>
+        <span class="grad-text">Anything.</span><br>
+        Instantly.
+      </h1>
+
+      <p class="hero-sub">
+        Images and PDFs — shrunk on your phone, never leaving it.
+        No cloud, no account, no waiting.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="https://play.google.com/store/apps/details?id=com.sprintapps.shrinkit"
+           class="btn btn-primary btn-large"
+           target="_blank"
+           rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M3,20.5v-17C3,2.91,3.5,2.5,4,2.5l14,8.5l-14,8.5C3.5,19.5,3,19.09,3,20.5z"/>
+          </svg>
+          Get it on Google Play
+        </a>
+        <a href="#features" class="btn btn-ghost">See all features</a>
+      </div>
+
+      <!-- Trust pills — highlight the most surprising truths -->
+      <div class="trust-strip" role="list">
+        <span class="trust-pill" role="listitem">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          100% Offline
+        </span>
+        <span class="trust-pill" role="listitem">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          JPEG · PNG · WebP
+        </span>
+        <span class="trust-pill" role="listitem">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          PDF Compression
+        </span>
+        <span class="trust-pill" role="listitem">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          No Account Needed
+        </span>
+      </div>
+
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="scroll-bar"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       STATS BAR
+       ══════════════════════════════════════════════════════════ -->
+  <div class="stats-bar" role="region" aria-label="App highlights">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <span class="stat-value">6</span>
+        <span class="stat-label">Compression Tools</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">3</span>
+        <span class="stat-label">Image Formats</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">50</span>
+        <span class="stat-label">Batch Files (Premium)</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">0</span>
+        <span class="stat-label">Files Uploaded to Cloud</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       FEATURES
+       ══════════════════════════════════════════════════════════ -->
+  <section id="features" class="section" aria-labelledby="features-heading">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="eyebrow">What ShrinkIt does</span>
+        <h2 id="features-heading">Six tools. One tap away.</h2>
+        <p>Every feature processes your files on-device using the Android Bitmap and PdfRenderer APIs. Nothing is sent anywhere.</p>
+      </div>
+
+      <div class="features-grid stagger-children">
+
+        <!-- Image Compression — Indigo slot (brand primary) -->
+        <article class="feature-card">
+          <div class="feature-icon feature-icon--indigo" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <div>
+            <h3>Image Compression</h3>
+            <p>A binary-search quality algorithm finds the smallest file that still meets your target size. Supports JPEG, PNG, and WebP with full quality control.</p>
+          </div>
+          <div class="feature-tags">
+            <span class="tag tag--indigo">JPEG</span>
+            <span class="tag tag--indigo">PNG</span>
+            <span class="tag tag--indigo">WebP</span>
+            <span class="tag tag--slate">EXIF-aware</span>
+          </div>
+        </article>
+
+        <!-- PDF Compression — Teal slot (documents) -->
+        <article class="feature-card">
+          <div class="feature-icon feature-icon--teal" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <div>
+            <h3>PDF Compression</h3>
+            <p>Rasterizes each page at your chosen DPI (72–200) and re-encodes it as a compact PDF. Choose between maximum compression or near-print quality.</p>
+          </div>
+          <div class="feature-tags">
+            <span class="tag tag--teal">72 DPI</span>
+            <span class="tag tag--teal">120 DPI</span>
+            <span class="tag tag--teal">200 DPI</span>
+          </div>
+        </article>
+
+        <!-- Batch Processing — Amber slot (scale/volume) -->
+        <article class="feature-card">
+          <div class="feature-icon feature-icon--amber" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div>
+            <h3>Batch Processing</h3>
+            <p>Queue multiple images and compress them all with a single tap. Free plan handles 10 files; Premium handles up to 50 — all processed locally.</p>
+          </div>
+          <div class="feature-tags">
+            <span class="tag tag--amber">10 Free</span>
+            <span class="tag tag--amber">50 Premium</span>
+          </div>
+        </article>
+
+        <!-- Passport Resize — Indigo (specialized image op) -->
+        <article class="feature-card">
+          <div class="feature-icon feature-icon--indigo" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 10a3 3 0 1 0 6 0 3 3 0 0 0-6 0"/><path d="M6 21v-1a6 6 0 0 1 12 0v1"/></svg>
+          </div>
+          <div>
+            <h3>Passport Resize</h3>
+            <p>Resize any photo to exact passport and visa dimensions for dozens of countries. Outputs a print-ready file at the correct DPI and aspect ratio.</p>
+          </div>
+          <div class="feature-tags">
+            <span class="tag tag--indigo">Preset Sizes</span>
+            <span class="tag tag--slate">Print-ready</span>
+          </div>
+        </article>
+
+        <!-- Format Convert — Teal (document-adjacent) -->
+        <article class="feature-card">
+          <div class="feature-icon feature-icon--teal" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+          </div>
+          <div>
+            <h3>Format Convert</h3>
+            <p>Convert between JPEG, PNG, and WebP in either direction. WebP lossy or lossless mode is automatically chosen based on Android version.</p>
+          </div>
+          <div class="feature-tags">
+            <span class="tag tag--teal">JPEG → WebP</span>
+            <span class="tag tag--teal">PNG → JPEG</span>
+          </div>
+        </article>
+
+        <!-- EXIF Preservation — Indigo/Slate -->
+        <article class="feature-card">
+          <div class="feature-icon feature-icon--indigo" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <h3>EXIF Preservation</h3>
+            <p>Optionally copy camera metadata — date, model, exposure, ISO, flash — from source to output file. Enabled by default; toggle in Settings. Premium feature.</p>
+          </div>
+          <div class="feature-tags">
+            <span class="tag tag--slate">Date &amp; Time</span>
+            <span class="tag tag--slate">Camera Model</span>
+            <span class="tag tag--indigo">Premium</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       HOW IT WORKS
+       ══════════════════════════════════════════════════════════ -->
+  <section id="how-it-works" class="section section--alt" aria-labelledby="hiw-heading">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="eyebrow">The flow</span>
+        <h2 id="hiw-heading">Three taps to a smaller file.</h2>
+        <p>ShrinkIt is designed to get out of the way. Pick a file, set a target, done.</p>
+      </div>
+
+      <div class="steps stagger-children">
+
+        <div class="step">
+          <div class="step-num" aria-hidden="true">01</div>
+          <h3>Pick a file</h3>
+          <p>Tap to open the system photo picker or Files app — or share an image or PDF directly from any other app using the standard Share sheet. No broad storage permissions required.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-num" aria-hidden="true">02</div>
+          <h3>Set the target</h3>
+          <p>Enter a target file size in KB, choose JPEG, PNG, or WebP, and optionally adjust the quality slider. ShrinkIt's algorithm iterates to find the best result automatically.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-num" aria-hidden="true">03</div>
+          <h3>Save or share</h3>
+          <p>Review the before/after comparison on the preview screen. Export directly to your gallery, send to WhatsApp, email, or any app — your compressed file is ready instantly.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       PRIVACY SECTION (dark)
+       ══════════════════════════════════════════════════════════ -->
+  <section id="privacy" class="section privacy-section" aria-labelledby="privacy-heading">
+    <div class="container">
+      <div class="privacy-inner">
+
+        <div class="privacy-text reveal">
+          <span class="eyebrow eyebrow--light">Privacy first</span>
+          <h2 id="privacy-heading">Nothing leaves your phone.</h2>
+          <p>ShrinkIt compresses files using your device's own processor. There is no server, no upload queue, and no account to create. Airplane mode works fine.</p>
+        </div>
+
+        <div class="privacy-points stagger-children">
+
+          <div class="privacy-point">
+            <div class="privacy-point-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h4>No broad storage permissions</h4>
+              <p>Files are selected via the system picker, which grants scoped URI access. ShrinkIt cannot browse your storage without your explicit selection.</p>
+            </div>
+          </div>
+
+          <div class="privacy-point">
+            <div class="privacy-point-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/><path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/><path d="M10.71 5.05A16 16 0 0 1 22.56 9"/><path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+            </div>
+            <div>
+              <h4>Compressed files stay local</h4>
+              <p>Output is written to your device's app cache or gallery. Files are never transmitted to any external server.</p>
+            </div>
+          </div>
+
+          <div class="privacy-point">
+            <div class="privacy-point-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <div>
+              <h4>Internet used only for ads &amp; updates</h4>
+              <p>The app requires internet only to load AdMob ads and check for configuration updates via Firebase. Compression itself works fully offline.</p>
+            </div>
+          </div>
+
+          <div class="privacy-point">
+            <div class="privacy-point-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <div>
+              <h4>Full privacy policy available</h4>
+              <p>We document exactly what AdMob and Firebase collect. <a href="privacy-policy.html">Read the full privacy policy →</a></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       FREE vs PREMIUM
+       ══════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="pricing-heading">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="eyebrow">Pricing</span>
+        <h2 id="pricing-heading">Useful for free. Powerful with Premium.</h2>
+        <p>The core compression engine is free forever. Premium is a one-time purchase — no subscription.</p>
+      </div>
+
+      <div class="pricing-grid reveal">
+
+        <!-- Free tier -->
+        <div class="pricing-card pricing-card--free">
+          <div>
+            <span class="pricing-badge pricing-badge--free">Free</span>
+          </div>
+          <div>
+            <h3>Everything you need to start</h3>
+            <div class="pricing-price">Free</div>
+            <p class="pricing-note">No account required</p>
+          </div>
+          <ul class="pricing-features">
+            <li class="pricing-feature">
+              <svg class="pf-check pf-check--cobalt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Image compression (JPEG, PNG, WebP)
+            </li>
+            <li class="pricing-feature">
+              <svg class="pf-check pf-check--cobalt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              PDF compression
+            </li>
+            <li class="pricing-feature">
+              <svg class="pf-check pf-check--cobalt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Batch processing (up to 10 files)
+            </li>
+            <li class="pricing-feature">
+              <svg class="pf-check pf-check--cobalt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Passport resize
+            </li>
+            <li class="pricing-feature">
+              <svg class="pf-check pf-check--cobalt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Format conversion
+            </li>
+            <li class="pricing-feature">
+              <svg class="pf-check pf-check--cobalt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              3 custom quality tries
+            </li>
+          </ul>
+        </div>
+
+        <!-- Premium tier -->
+        <div class="pricing-card pricing-card--premium">
+          <div>
+            <span class="pricing-badge pricing-badge--premium">✦ Premium</span>
+          </div>
+          <div>
+            <h3>No limits, no ads</h3>
+            <div class="pricing-price">One-time</div>
+            <p class="pricing-note">Unlock forever — no subscription</p>
+          </div>
+          <ul class="pricing-features">
+            <li class="pricing-feature">
+              <svg class="pf-check pf-check--teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Everything in Free
+            </li>
+            <li class="pricing-feature">
+              <svg class="pf-check pf-check--teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Batch processing up to 50 files
+            </li>
+            <li class="pricing-feature">
+              <svg class="pf-check pf-check--teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              EXIF metadata preservation
+            </li>
+            <li class="pricing-feature">
+              <svg class="pf-check pf-check--teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Unlimited custom quality slider
+            </li>
+            <li class="pricing-feature">
+              <svg class="pf-check pf-check--teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Unlimited PDF pages
+            </li>
+            <li class="pricing-feature">
+              <svg class="pf-check pf-check--teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              No interstitial ads
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       FAQ
+       ══════════════════════════════════════════════════════════ -->
+  <section id="faq" class="section section--alt" aria-labelledby="faq-heading">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="eyebrow">Questions</span>
+        <h2 id="faq-heading">Frequently asked.</h2>
+      </div>
+
+      <div class="faq-list reveal" role="list">
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            Does ShrinkIt upload my files anywhere?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              No. ShrinkIt processes everything using Android's built-in Bitmap and PdfRenderer APIs. Your files are read from the URI you select and the compressed output is written back to your device. Nothing is transmitted to any server. The app works entirely offline for compression tasks.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            What image formats does ShrinkIt support?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              ShrinkIt supports JPEG (lossy, with quality 1–100), PNG (lossless), and WebP (lossy below quality 100, lossless at quality 100 on Android 10+). You can also convert any format to any other format using the Format Convert tool.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            How does ShrinkIt hit my target file size?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              The image compressor uses a binary-search algorithm over the quality range 1–100. It takes at most ~7 iterations to converge on the largest quality setting that still produces a file at or below your target size. If even quality=1 exceeds the target, the app progressively reduces image dimensions by 25% steps until it fits. This means target-size hits are fast and memory-efficient.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            Can I compress PDFs without losing text quality?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              PDF compression rasterizes each page to an image at your chosen DPI (72, 120, 150, or 200). At 200 DPI the output is near-print quality. At 72 DPI the file is smallest but text may be harder to read at very small font sizes. Hyperlinks and interactive elements are not preserved. For text-only PDFs with vector content, the app warns that file size may increase after rasterization.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            What is passport resize?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Passport Resize lets you resize any photo to standard passport or visa photo dimensions — the sizes required by government and consular offices in different countries. The output is a correctly sized, print-ready JPEG at the required DPI. Select your country's specification from the preset list, pick your photo, and the tool handles cropping and resizing automatically.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            Does ShrinkIt require an internet connection?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              No internet is required for any compression task. The app uses the network only to load AdMob advertisements and to fetch configuration updates from Firebase Remote Config (things like ad frequency settings and feature limits). Free users may see a nudge to enable connectivity to load ads, but compression always works offline.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            What does Premium include and is it a subscription?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Premium is a one-time in-app purchase through Google Play — not a subscription. It unlocks: batch processing up to 50 images (free: 10), EXIF metadata copying, unlimited custom quality slider usage, unlimited PDF pages, and no interstitial ads. The purchase is permanent and can be restored on any device signed in to the same Google account.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            Which Android version does ShrinkIt require?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              ShrinkIt requires Android 7.0 (API 24) or higher. It is optimized for Android 9+ where scoped storage means no broad storage permission is needed at all. WebP lossless output requires Android 10 (API 30)+.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       DOWNLOAD CTA
+       ══════════════════════════════════════════════════════════ -->
+  <section class="section cta-section" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="cta-inner">
+
+        <h2 id="cta-heading">
+          Smaller files.<br>
+          <span class="grad-text">Right now.</span>
+        </h2>
+
+        <p>Free on Google Play. No account. No uploads. Works on Android 7.0 and up.</p>
+
+        <a href="https://play.google.com/store/apps/details?id=com.sprintapps.shrinkit"
+           class="store-badge"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Download ShrinkIt on Google Play">
+          <!-- Google Play icon -->
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M3 20.5v-17C3 2.9 3.5 2.5 4 2.5l14 8.5-14 8.5c-.5.5-1 .09-1-1z" fill="#4285F4"/>
+            <path d="M17.74 11L4 2.5 13.74 12 17.74 11z" fill="#EA4335"/>
+            <path d="M17.74 13L4 21.5 13.74 12 17.74 13z" fill="#FBBC05"/>
+            <path d="M13.74 12l4 .98-4 1.02V12z" fill="#34A853"/>
+          </svg>
+          <span class="store-badge-text">
+            <small>Get it on</small>
+            <strong>Google Play</strong>
+          </span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        <div class="footer-brand-name">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="22" height="22" aria-hidden="true">
+            <defs>
+              <linearGradient id="footer-logo-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#2268E8"/>
+                <stop offset="100%" stop-color="#003A8F"/>
+              </linearGradient>
+            </defs>
+            <rect width="512" height="512" rx="114" fill="url(#footer-logo-bg)"/>
+            <path d="M208,96 L256,136 L304,96 L256,240 Z" fill="white"/>
+            <path d="M208,416 L256,376 L304,416 L256,272 Z" fill="white"/>
+            <path d="M96,208 L136,256 L96,304 L240,256 Z" fill="white"/>
+            <path d="M416,208 L376,256 L416,304 L272,256 Z" fill="white"/>
+            <circle cx="256" cy="256" r="36" fill="white"/>
+          </svg>
+          ShrinkIt
+        </div>
+        <p>A local-first image and PDF compression app for Android. Every byte saved on your device, by your device.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>App</h4>
+        <ul>
+          <li><a href="https://play.google.com/store/apps/details?id=com.sprintapps.shrinkit" target="_blank" rel="noopener noreferrer">Google Play</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="mailto:sprintapps.dev@gmail.com?subject=ShrinkIt%20Support">Contact Support</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="year">2025</span> Sprint Apps. All rights reserved.</p>
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script src="assets/main.js"></script>
+  <script>
+    // Update year dynamically
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
