@@ -1336,3 +1336,28 @@ h1, h2, h3, h4, h5 {
     transform: none !important;
   }
 }
+
+/* ── In-app mode (?embed=app) ──────────────────────────────── */
+/* The ShrinkIt app shows the legal pages under its own title bar with a close button, so the
+   site's nav, footer and page title are hidden and links read as plain text (see main.js). */
+.embedded .nav,
+.embedded .footer,
+.embedded .policy-hero .eyebrow,
+.embedded .policy-hero h1 { display: none !important; }
+
+.embedded .policy-hero {
+  background: var(--bg);
+  padding: var(--sp-6) 0 0;
+}
+
+.embedded .policy-hero p { color: var(--on-surface-variant); font-size: 14px; }
+.embedded .policy-hero strong { color: var(--on-bg) !important; }
+
+.embedded .policy-body { padding-top: var(--sp-6); }
+
+.embedded .policy-content h2[id] { scroll-margin-top: var(--sp-4); }
+
+.embedded .policy-content a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
