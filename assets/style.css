@@ -1339,7 +1339,8 @@ h1, h2, h3, h4, h5 {
 
 /* ── In-app mode (?embed=app) ──────────────────────────────── */
 /* The ShrinkIt app shows the legal pages under its own title bar with a close button, so the
-   site's nav, footer and page title are hidden and links read as plain text (see main.js). */
+   site's nav, footer and page title are hidden, and links other than email addresses read as
+   plain text (see main.js). */
 .embedded .nav,
 .embedded .footer,
 .embedded .policy-hero .eyebrow,

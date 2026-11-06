@@ -190,7 +190,8 @@
 
 /* ── In-app mode (?embed=app; the class is set in <head>) ──── */
 // The app shows its own title bar and close button, so the page is read-only there: links become
-// plain text, and contents links scroll within the page without adding history entries.
+// plain text, except email links (the app opens a mail app for those), and contents links scroll
+// within the page without adding history entries.
 (function () {
   if (!document.documentElement.classList.contains('embedded')) return;
   document.querySelectorAll('a[href]').forEach((a) => {
@@ -201,7 +202,7 @@
         const target = document.getElementById(href.slice(1));
         if (target) target.scrollIntoView({ block: 'start' });
       });
-    } else {
+    } else if (!href.toLowerCase().startsWith('mailto:')) {
       a.removeAttribute('href');
       a.removeAttribute('target');
     }
