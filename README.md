@@ -6,6 +6,7 @@ Serves as:
 - Google Play developer website
 - AdMob `app-ads.txt` verification endpoint
 - Privacy Policy hosting
+- Terms of Service hosting
 - Marketing landing page
 
 ---
@@ -16,6 +17,7 @@ Serves as:
 shrinkit-website/
 ├── index.html              # Landing page
 ├── privacy-policy.html     # Privacy Policy (Play Store compliant)
+├── terms-of-service.html   # Terms of Service (Pro, ads/rewards, Unlock PDF, presets)
 ├── app-ads.txt             # AdMob verification (publisher pub-7995936388116429)
 ├── .nojekyll               # Disables Jekyll processing on GitHub Pages
 ├── README.md               # This file

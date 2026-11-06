@@ -1176,6 +1176,12 @@ h1, h2, h3, h4, h5 {
 
 .footer-bottom a:hover { color: rgba(197,198,216,.90); }
 
+.footer-bottom-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-5);
+}
+
 /* ── Privacy Policy Page ───────────────────────────────────── */
 .policy-hero {
   background: var(--dark-bg);
@@ -1215,6 +1221,37 @@ h1, h2, h3, h4, h5 {
 }
 
 .policy-content h2:first-of-type { margin-top: 0; }
+
+/* Anchor jumps land below the fixed nav */
+.policy-content h2[id] { scroll-margin-top: calc(var(--nav-h) + var(--sp-6)); }
+
+.policy-toc {
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--r-lg);
+  padding: var(--sp-5) var(--sp-6);
+  margin-bottom: var(--sp-10);
+}
+
+.policy-content .policy-toc h3 { margin-top: 0; }
+
+.policy-toc ol {
+  margin: 0;
+  padding-left: var(--sp-6);
+}
+
+@media (min-width: 640px) {
+  .policy-toc ol { columns: 2; column-gap: var(--sp-8); }
+}
+
+.policy-content .policy-toc li {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: var(--sp-2);
+  break-inside: avoid;
+}
+
+.policy-content .policy-toc a { text-decoration: none; }
+.policy-content .policy-toc a:hover { text-decoration: underline; }
 
 .policy-content h3 {
   font-size: 16px;
