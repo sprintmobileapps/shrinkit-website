@@ -7,8 +7,8 @@
 
   <!-- Primary SEO -->
   <title>ShrinkIt — Compress Photos, Videos &amp; PDFs on Android, 100% Offline</title>
-  <meta name="description" content="ShrinkIt compresses JPEG, PNG, and WebP photos, MP4 videos up to 4K, and PDFs directly on your Android device. Resize photos and signatures for passport, Aadhaar, PAN and exam forms. No cloud, no uploads, no account. Free on Google Play.">
-  <meta name="keywords" content="image compressor Android, video compressor Android, PDF compressor Android, compress photos phone, compress video phone, reduce file size Android, offline image compression, JPEG compressor app, WebP converter Android, passport size photo resize, Aadhaar photo size, PAN card photo size, batch photo compressor">
+  <meta name="description" content="ShrinkIt compresses JPEG, PNG, and WebP photos, MP4 videos up to 4K, and PDFs directly on your Android device, and unlocks password-protected PDFs when you know the password. Resize photos and signatures for passport, Aadhaar, PAN and exam forms. No cloud, no uploads, no account. Free on Google Play.">
+  <meta name="keywords" content="image compressor Android, video compressor Android, PDF compressor Android, unlock PDF Android, remove PDF password, PDF password remover, save PDF password, compress photos phone, compress video phone, reduce file size Android, offline image compression, JPEG compressor app, WebP converter Android, passport size photo resize, Aadhaar photo size, PAN card photo size, batch photo compressor">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://sprintmobileapps.github.io/shrinkit-website/">
 
@@ -16,16 +16,16 @@
   <meta property="og:type"        content="website">
   <meta property="og:url"         content="https://sprintmobileapps.github.io/shrinkit-website/">
   <meta property="og:title"       content="ShrinkIt — Compress Photos, Videos &amp; PDFs on Android">
-  <meta property="og:description" content="Compress photos, videos, and PDFs on your Android device. 100% offline. No cloud, no account. JPEG · PNG · WebP · MP4 · PDF.">
+  <meta property="og:description" content="Compress photos, videos, and PDFs on your Android device, and unlock password-protected PDFs. 100% offline. No cloud, no account.">
   <meta property="og:image"       content="https://sprintmobileapps.github.io/shrinkit-website/assets/og-image.png">
-  <meta property="og:image:width" content="1264">
-  <meta property="og:image:height" content="683">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name"   content="ShrinkIt">
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="ShrinkIt — Compress Photos, Videos &amp; PDFs on Android">
-  <meta name="twitter:description" content="100% offline photo, video, and PDF compression for Android. No cloud. No uploads. Free on Google Play.">
+  <meta name="twitter:description" content="100% offline photo, video, and PDF compression for Android, plus Unlock PDF. No cloud. No uploads. Free on Google Play.">
   <meta name="twitter:image"       content="https://sprintmobileapps.github.io/shrinkit-website/assets/og-image.png">
 
   <!-- Structured Data (App) -->
@@ -36,7 +36,17 @@
     "name": "ShrinkIt",
     "operatingSystem": "Android",
     "applicationCategory": "UtilitiesApplication",
-    "description": "Compress JPEG, PNG, WebP photos, MP4 videos up to 4K, and PDFs locally on your Android device. Resize photos and signatures for official forms. No cloud, no uploads.",
+    "description": "Compress JPEG, PNG, WebP photos, MP4 videos up to 4K, and PDFs locally on your Android device. Unlock password-protected PDFs and remember their passwords on your phone. Resize photos and signatures for official forms. No cloud, no uploads.",
+    "featureList": [
+      "Photo compression (JPEG, PNG, WebP)",
+      "Video compression up to 4K",
+      "PDF compression",
+      "Unlock PDF: save an unlocked copy using the PDF's password, or remove print and copy restrictions",
+      "Remember PDF passwords on this device",
+      "Batch photo compression",
+      "Passport, Aadhaar, PAN and exam form photo presets",
+      "Image format conversion"
+    ],
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -44,7 +54,7 @@
     },
     "installUrl": "https://play.google.com/store/apps/details?id=com.sprintapps.shrinkit",
     "screenshot": "https://sprintmobileapps.github.io/shrinkit-website/assets/og-image.png",
-    "softwareVersion": "1.4",
+    "softwareVersion": "1.4.0",
     "author": {
       "@type": "Organization",
       "name": "Sprint Mobile Apps"
@@ -94,6 +104,7 @@
 
       <nav class="nav-links" aria-label="Site sections">
         <a href="#features">Features</a>
+        <a href="#unlock-pdf">Unlock PDF</a>
         <a href="#how-it-works">How It Works</a>
         <a href="#privacy">Privacy</a>
         <a href="#faq">FAQ</a>
@@ -119,8 +130,8 @@
 
     <div class="hero-content">
 
-      <!-- App badge -->
-      <div class="hero-badge" role="text">Free Android App</div>
+      <!-- What's-new badge: links to the Unlock PDF section -->
+      <a class="hero-badge hero-badge--link" href="#unlock-pdf">New: Unlock PDF &rarr;</a>
 
       <!-- App logo — large, prominent -->
       <svg class="hero-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
@@ -149,7 +160,7 @@
 
       <p class="hero-sub">
         Photos, videos, and PDFs — shrunk on your phone, never leaving it.
-        No cloud, no account, no waiting.
+        Locked PDFs too. No cloud, no account, no waiting.
       </p>
 
       <div class="hero-ctas">
@@ -182,6 +193,10 @@
         <span class="trust-pill" role="listitem">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           PDF Compression
+        </span>
+        <span class="trust-pill" role="listitem">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>
+          Unlock PDF
         </span>
         <span class="trust-pill" role="listitem">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -277,12 +292,13 @@
           </div>
           <div>
             <h3>PDF Compression</h3>
-            <p>Choose Light, Balanced, or Heavy compression to shrink scanned documents and forms for email and uploads. Free for PDFs up to 10 pages; Pro handles PDFs of any length.</p>
+            <p>Choose Light, Balanced, or Heavy compression to shrink scanned documents and forms for email and uploads. Password-protected PDFs work too. Free for PDFs up to 10 pages; Pro handles PDFs of any length.</p>
           </div>
           <div class="feature-tags">
             <span class="tag tag--teal">Light</span>
             <span class="tag tag--teal">Balanced</span>
             <span class="tag tag--teal">Heavy</span>
+            <span class="tag tag--slate">Locked PDFs</span>
           </div>
         </article>
 
@@ -293,11 +309,11 @@
           </div>
           <div>
             <h3>Batch Processing</h3>
-            <p>Select many photos — or a whole folder — and compress them all in one tap. Batches keep running in the background with a progress notification. Free handles 10 photos at a time; Pro handles up to 50.</p>
+            <p>Select many photos — or a whole folder, even one with thousands of photos — and compress them all in one tap. Batches keep running in the background with a progress notification. Free handles 10 photos at a time; Pro has no limit.</p>
           </div>
           <div class="feature-tags">
             <span class="tag tag--amber">10 Free</span>
-            <span class="tag tag--amber">50 Pro</span>
+            <span class="tag tag--amber">Unlimited Pro</span>
             <span class="tag tag--slate">Whole Folder</span>
           </div>
         </article>
@@ -355,12 +371,12 @@
           </div>
           <div>
             <h3>Save Anywhere</h3>
-            <p>Keep compressed files organised by date or by type, or send them straight to any folder you choose on your device. Pro feature.</p>
+            <p>Save compressed files straight to any folder you choose on your device, or keep them organised by date or by type. Your first few saves to a folder are free; Pro saves anywhere, every time.</p>
           </div>
           <div class="feature-tags">
+            <span class="tag tag--teal">Any Folder</span>
             <span class="tag tag--teal">By Date</span>
             <span class="tag tag--teal">By Type</span>
-            <span class="tag tag--indigo">Pro</span>
           </div>
         </article>
 
@@ -377,6 +393,74 @@
             <span class="tag tag--amber">Lifetime Savings</span>
           </div>
         </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       UNLOCK PDF (new in 1.4.0)
+       Copy rule: always say the password is needed; never "crack",
+       "bypass" or "without a password" (Play Device & Network Abuse).
+       ══════════════════════════════════════════════════════════ -->
+  <section id="unlock-pdf" class="section spotlight" aria-labelledby="unlock-heading">
+    <div class="container">
+      <div class="spotlight-inner">
+
+        <div class="spotlight-text reveal">
+          <span class="eyebrow">New · Unlock PDF</span>
+          <h2 id="unlock-heading">Type the PDF password <span class="grad-text" style="white-space:nowrap">just once.</span></h2>
+          <p class="spotlight-lead">Bank statements, payslips and e-Aadhaar often arrive locked. Enter the password once and ShrinkIt saves an unlocked copy that opens straight away in any app — all on your phone.</p>
+
+          <ul class="spotlight-list">
+            <li>
+              <span class="spotlight-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>
+              </span>
+              <div>
+                <h3>Save an unlocked copy</h3>
+                <p>Type the PDF's password and get a copy that opens without one. Free, with no page limit.</p>
+              </div>
+            </li>
+            <li>
+              <span class="spotlight-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+              </span>
+              <div>
+                <h3>Remove restrictions</h3>
+                <p>Some PDFs open fine but block printing, copying or editing. ShrinkIt can save a copy without these restrictions.</p>
+              </div>
+            </li>
+            <li>
+              <span class="spotlight-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+              </span>
+              <div>
+                <h3>Remember on this device</h3>
+                <p>Tick the box and next month's statement opens with your saved password. Passwords are encrypted on your phone and never uploaded. Free remembers 1; Pro remembers up to 10.</p>
+              </div>
+            </li>
+            <li>
+              <span class="spotlight-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+              </span>
+              <div>
+                <h3>Compress locked PDFs too</h3>
+                <p>PDF compression asks for the password, or opens the file straight away with a saved one.</p>
+              </div>
+            </li>
+          </ul>
+
+          <p class="spotlight-note">You need the PDF's password: ShrinkIt can't recover forgotten passwords. Only unlock documents you own or are allowed to use.</p>
+        </div>
+
+        <div class="spotlight-visual reveal">
+          <div class="phone-frame">
+            <img src="assets/screenshots/unlock-pdf.webp" width="600" height="1084" loading="lazy" decoding="async"
+                 alt="ShrinkIt's Unlock PDF screen: a password-protected bank statement is selected, its password is typed in, and Remember on this device is ticked">
+          </div>
+        </div>
 
       </div>
     </div>
@@ -457,6 +541,16 @@
 
           <div class="privacy-point">
             <div class="privacy-point-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <div>
+              <h4>PDF passwords stay on your phone</h4>
+              <p>A password is used only to open the PDF you picked. It's saved only if you tick Remember on this device, encrypted with a key in Android's Keystore, and never uploaded or backed up.</p>
+            </div>
+          </div>
+
+          <div class="privacy-point">
+            <div class="privacy-point-icon" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
             </div>
             <div>
@@ -520,6 +614,10 @@
             </li>
             <li class="pricing-feature">
               <svg class="pf-check pf-check--cobalt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Unlock PDF, and remember 1 PDF password
+            </li>
+            <li class="pricing-feature">
+              <svg class="pf-check pf-check--cobalt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
               Batch photo compression (up to 10 photos)
             </li>
             <li class="pricing-feature">
@@ -558,11 +656,15 @@
             </li>
             <li class="pricing-feature">
               <svg class="pf-check pf-check--teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              Batch compress up to 50 photos at a time
+              Unlimited batch compression
             </li>
             <li class="pricing-feature">
               <svg class="pf-check pf-check--teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
               PDFs of any length
+            </li>
+            <li class="pricing-feature">
+              <svg class="pf-check pf-check--teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Remember up to 10 PDF passwords
             </li>
             <li class="pricing-feature">
               <svg class="pf-check pf-check--teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
@@ -578,7 +680,7 @@
             </li>
             <li class="pricing-feature">
               <svg class="pf-check pf-check--teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              Save anywhere — by date, by type, or any folder
+              Save anywhere, every time — by date, by type, or any folder
             </li>
           </ul>
         </div>
@@ -608,7 +710,7 @@
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              No. ShrinkIt processes everything on your device using Android's built-in image, PDF, and video APIs. Your files are read from the location you select and the compressed output is written back to your device. Nothing is transmitted to any server.
+              No. ShrinkIt processes everything on your device using Android's built-in image, PDF, and video APIs and its own code. Your files are read from the location you select and the compressed or unlocked output is written back to your device. Nothing is transmitted to any server — and that includes any PDF passwords you type or save.
             </div>
           </div>
         </div>
@@ -656,7 +758,31 @@
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              PDF compression turns each page into a compressed image. Light (150 DPI) keeps near-print quality, Balanced (96 DPI) is the default, and Heavy (72 DPI) gives the smallest file, though very small text may be harder to read. Text in a compressed PDF may not be selectable, and hyperlinks are not preserved. Scanned and image-heavy PDFs shrink the most; text-only PDFs may not get smaller. Free users can compress PDFs up to 10 pages; Pro handles any length.
+              PDF compression turns each page into a compressed image. Light (150 DPI) keeps near-print quality, Balanced (96 DPI) is the default, and Heavy (72 DPI) gives the smallest file, though very small text may be harder to read. Text in a compressed PDF may not be selectable, and hyperlinks are not preserved. Scanned and image-heavy PDFs shrink the most; text-only PDFs may not get smaller. Password-protected PDFs work too: type the password, or let a saved one open the file. Free users can compress PDFs up to 10 pages; Pro handles any length.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            Can ShrinkIt remove a password from a PDF?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Yes, if you know the password. Open Unlock PDF, pick the file, and type its password once: ShrinkIt saves an unlocked copy that opens without a password in any app. It can also remove print, copy and edit restrictions from PDFs that open without a password. ShrinkIt doesn't guess or recover passwords, so if you've forgotten one, ask whoever sent the PDF. Unlock PDF is free, with no page limit. The unlocked file is a new copy, so a digital signature on the original (e-Aadhaar has one) doesn't carry over — keep the original wherever a signed copy is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            Where are my saved PDF passwords stored?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Only on your phone. A password is saved only if you tick Remember on this device, and only after it has opened the file. It's encrypted with a key held in Android's secure Keystore, kept in ShrinkIt's private storage, left out of device backups, and never uploaded or sent to analytics. The next time you pick a locked PDF, ShrinkIt tries your saved passwords first, so a monthly statement with the same password opens with nothing to type. Free keeps 1 saved password and Pro keeps up to 10; at the limit, a new one replaces the one you used least recently. You can rename or forget them any time in Settings → Saved PDF passwords, and uninstalling ShrinkIt deletes them.
             </div>
           </div>
         </div>
@@ -680,7 +806,7 @@
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              No internet is required for any compression task — ShrinkIt is 100% offline. The app uses the network only to load AdMob ads, log anonymous usage analytics via Firebase, receive occasional notifications, and fetch configuration updates from Firebase Remote Config (things like ad frequency and feature limits).
+              Compressing, resizing, converting and unlocking all run on your phone, so your files never need the internet. Pro works fully offline. The free version needs a connection only so ads can load. The app also uses the network to log anonymous usage analytics via Firebase, receive occasional notifications, and fetch configuration updates from Firebase Remote Config (things like ad frequency and feature limits).
             </div>
           </div>
         </div>
@@ -692,7 +818,7 @@
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              Pro is a one-time in-app purchase through Google Play — not a subscription. It unlocks: no ads, 2K and 4K video plus extra-small HEVC video on supported phones, batch compression up to 50 photos (free: 10), PDFs of any length (free: 10 pages), unlimited custom quality for photos and videos, the before/after comparison slider, keeping photo details, saving to any folder, and all future Pro features. The purchase is permanent and can be restored on any device signed in to the same Google account.
+              Pro is a one-time in-app purchase through Google Play — not a subscription. It unlocks: no ads, 2K and 4K video plus extra-small HEVC video on supported phones, unlimited batch compression (free: 10 photos at a time), PDFs of any length (free: 10 pages), up to 10 saved PDF passwords (free: 1), unlimited custom quality for photos and videos, the before/after comparison slider, keeping photo details, saving to any folder every time, and all future Pro features. The purchase is permanent and can be restored on any device signed in to the same Google account.
             </div>
           </div>
         </div>

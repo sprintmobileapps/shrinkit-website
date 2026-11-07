@@ -24,7 +24,9 @@ shrinkit-website/
 └── assets/
     ├── style.css           # All styles (design system from app Color.kt)
     ├── main.js             # Nav scroll, canvas animation, FAQ accordion
-    └── screenshots/        # Place app screenshots here (see below)
+    ├── og-image.png        # Social-share image, 1200×630 (see below)
+    └── screenshots/
+        └── unlock-pdf.webp # Unlock PDF section on the homepage (see below)
 ```
 
 ---
@@ -62,19 +64,28 @@ The Google Play URL `https://play.google.com/store/apps/details?id=com.sprintapp
 
 ## Adding Screenshots
 
-Place phone screenshots in `assets/screenshots/`. Recommended filenames:
-- `assets/screenshots/home.png`
-- `assets/screenshots/compress.png`
-- `assets/screenshots/preview.png`
+Screenshots live in `assets/screenshots/` as WebP, cropped and scaled down from the raw
+emulator captures (the raw captures are kept on Google Drive in `ShrinkIt_screenshots`, not in
+this repo). `unlock-pdf.webp` is the top 2600 px of the 1440×3120 Pixel 6 Pro capture
+`raw/phone/09_unlock_pdf.png`, at 600 px wide:
 
-Source screenshots are in `/Users/siddharthdubey/Desktop/shrinkit/Phone ss/`.
-
-To use as the Open Graph image, copy `shrinkit-feature.png` from the desktop:
 ```bash
-cp ~/Desktop/shrinkit/shrinkit-feature.png assets/og-image.png
+cwebp -q 80 -crop 0 0 1440 2600 -resize 600 0 09_unlock_pdf.png -o assets/screenshots/unlock-pdf.webp
 ```
-Then update `og:image` and `twitter:image` in both HTML files from the placeholder to:
-`https://YOUR_USERNAME.github.io/shrinkit-website/assets/og-image.png`
+
+The homepage frames it in `.phone-frame`, which fades out below the Unlock button.
+
+### Open Graph image
+
+`assets/og-image.png` (1200×630) is rendered from `brand/og_image_source.html` in the ShrinkIt app
+repo, a copy of the Play feature-graphic template. Render it with any headless Chrome:
+
+```bash
+chrome-headless-shell --headless --hide-scrollbars --window-size=1024,538 \
+  --force-device-scale-factor=1.171875 --screenshot=og-image.png og_image_source.html
+```
+
+If the size changes, update `og:image:width` / `og:image:height` in `index.html`.
 
 ---
 
