@@ -104,7 +104,6 @@
 
       <nav class="nav-links" aria-label="Site sections">
         <a href="#features">Features</a>
-        <a href="#unlock-pdf">Unlock PDF</a>
         <a href="#how-it-works">How It Works</a>
         <a href="#privacy">Privacy</a>
         <a href="#faq">FAQ</a>
@@ -130,8 +129,8 @@
 
     <div class="hero-content">
 
-      <!-- What's-new badge: links to the Unlock PDF section -->
-      <a class="hero-badge hero-badge--link" href="#unlock-pdf">New: Unlock PDF &rarr;</a>
+      <!-- App badge -->
+      <div class="hero-badge" role="text">Free Android App</div>
 
       <!-- App logo — large, prominent -->
       <svg class="hero-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
@@ -302,6 +301,22 @@
           </div>
         </article>
 
+        <!-- Unlock PDF — Indigo. Copy rule: always say the password is needed; never "crack",
+             "bypass" or "without a password" (Play Device & Network Abuse). -->
+        <article class="feature-card">
+          <div class="feature-icon feature-icon--indigo" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>
+          </div>
+          <div>
+            <h3>Unlock PDF</h3>
+            <p>Type a locked PDF's password once to save a copy that opens in any app, or remove print, copy and edit restrictions — free, with no page limit. Remember passwords on this device: 1 free, up to 10 with Pro. You need the password; ShrinkIt can't recover forgotten ones.</p>
+          </div>
+          <div class="feature-tags">
+            <span class="tag tag--indigo">Unlocked Copy</span>
+            <span class="tag tag--slate">Saved Passwords</span>
+          </div>
+        </article>
+
         <!-- Batch Processing — Amber slot (scale/volume) -->
         <article class="feature-card">
           <div class="feature-icon feature-icon--amber" aria-hidden="true">
@@ -393,74 +408,6 @@
             <span class="tag tag--amber">Lifetime Savings</span>
           </div>
         </article>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ══════════════════════════════════════════════════════════
-       UNLOCK PDF (new in 1.4.0)
-       Copy rule: always say the password is needed; never "crack",
-       "bypass" or "without a password" (Play Device & Network Abuse).
-       ══════════════════════════════════════════════════════════ -->
-  <section id="unlock-pdf" class="section spotlight" aria-labelledby="unlock-heading">
-    <div class="container">
-      <div class="spotlight-inner">
-
-        <div class="spotlight-text reveal">
-          <span class="eyebrow">New · Unlock PDF</span>
-          <h2 id="unlock-heading">Type the PDF password <span class="grad-text" style="white-space:nowrap">just once.</span></h2>
-          <p class="spotlight-lead">Bank statements, payslips and e-Aadhaar often arrive locked. Enter the password once and ShrinkIt saves an unlocked copy that opens straight away in any app — all on your phone.</p>
-
-          <ul class="spotlight-list">
-            <li>
-              <span class="spotlight-icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>
-              </span>
-              <div>
-                <h3>Save an unlocked copy</h3>
-                <p>Type the PDF's password and get a copy that opens without one. Free, with no page limit.</p>
-              </div>
-            </li>
-            <li>
-              <span class="spotlight-icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-              </span>
-              <div>
-                <h3>Remove restrictions</h3>
-                <p>Some PDFs open fine but block printing, copying or editing. ShrinkIt can save a copy without these restrictions.</p>
-              </div>
-            </li>
-            <li>
-              <span class="spotlight-icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
-              </span>
-              <div>
-                <h3>Remember on this device</h3>
-                <p>Tick the box and next month's statement opens with your saved password. Passwords are encrypted on your phone and never uploaded. Free remembers 1; Pro remembers up to 10.</p>
-              </div>
-            </li>
-            <li>
-              <span class="spotlight-icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
-              </span>
-              <div>
-                <h3>Compress locked PDFs too</h3>
-                <p>PDF compression asks for the password, or opens the file straight away with a saved one.</p>
-              </div>
-            </li>
-          </ul>
-
-          <p class="spotlight-note">You need the PDF's password: ShrinkIt can't recover forgotten passwords. Only unlock documents you own or are allowed to use.</p>
-        </div>
-
-        <div class="spotlight-visual reveal">
-          <div class="phone-frame">
-            <img src="assets/screenshots/unlock-pdf.webp" width="600" height="1084" loading="lazy" decoding="async"
-                 alt="ShrinkIt's Unlock PDF screen: a password-protected bank statement is selected, its password is typed in, and Remember on this device is ticked">
-          </div>
-        </div>
 
       </div>
     </div>

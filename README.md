@@ -24,9 +24,7 @@ shrinkit-website/
 └── assets/
     ├── style.css           # All styles (design system from app Color.kt)
     ├── main.js             # Nav scroll, canvas animation, FAQ accordion
-    ├── og-image.png        # Social-share image, 1200×630 (see below)
-    └── screenshots/
-        └── unlock-pdf.webp # Unlock PDF section on the homepage (see below)
+    └── og-image.png        # Social-share image, 1200×630 (see below)
 ```
 
 ---
@@ -64,16 +62,14 @@ The Google Play URL `https://play.google.com/store/apps/details?id=com.sprintapp
 
 ## Adding Screenshots
 
-Screenshots live in `assets/screenshots/` as WebP, cropped and scaled down from the raw
-emulator captures (the raw captures are kept on Google Drive in `ShrinkIt_screenshots`, not in
-this repo). `unlock-pdf.webp` is the top 2600 px of the 1440×3120 Pixel 6 Pro capture
-`raw/phone/09_unlock_pdf.png`, at 600 px wide:
+The homepage has no app screenshots right now. To add one, put it in `assets/screenshots/` as
+WebP, cropped and scaled down from the raw emulator captures (kept on Google Drive in
+`ShrinkIt_screenshots`, not in this repo). For example, the top 2600 px of a 1440×3120 Pixel 6 Pro
+capture at 600 px wide:
 
 ```bash
-cwebp -q 80 -crop 0 0 1440 2600 -resize 600 0 09_unlock_pdf.png -o assets/screenshots/unlock-pdf.webp
+cwebp -q 80 -crop 0 0 1440 2600 -resize 600 0 capture.png -o assets/screenshots/name.webp
 ```
-
-The homepage frames it in `.phone-frame`, which fades out below the Unlock button.
 
 ### Open Graph image
 
