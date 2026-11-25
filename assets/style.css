@@ -1486,7 +1486,8 @@ h1, h2, h3, h4, h5 {
 
 /* ── Framed visits: QR sheet (see main.js) ─────────────────── */
 /* Inside another site's frame, Google Play can't open, so the Play buttons open this sheet with a
-   QR code (or a Play Store app link on Android). Ordinary visits never create it. */
+   QR code, or on Android show it only when the Play Store app didn't open. Ordinary visits never
+   create it. */
 .qr-sheet {
   width: min(360px, calc(100% - 32px));
   max-height: calc(100% - 32px);
@@ -1578,6 +1579,7 @@ h1, h2, h3, h4, h5 {
   color: var(--dark-on-variant);
 }
 
+.qr-lede strong,
 .qr-hint strong { color: var(--dark-on-bg); font-weight: 600; }
 
 @media (prefers-reduced-motion: reduce) {

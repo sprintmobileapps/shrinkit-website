@@ -72,9 +72,15 @@ e.g. `https://sprintmobileapps.github.io/shrinkit-website/?utm_source=firefaucet
 
 Sites such as FireFaucet show the page in a sandboxed iframe. Tabs opened from it inherit the sandbox, and Google
 Play refuses to load in a sandboxed tab (`ERR_BLOCKED_BY_RESPONSE`, from Play's Cross-Origin-Opener-Policy). So
-when the page is framed, the Play buttons open a sheet instead: a QR code on computers (`utm_medium=qr`) and an
-"Open in Play Store" `market://` link on Android (`utm_medium=app`). Ordinary visits are unchanged and never load
-the QR encoder. To regenerate `assets/vendor/qrcode.min.js`: `npm pack qrcode-generator@1.4.4`, then minify
+when the page is framed:
+
+- **Android:** the Play buttons open the Play Store app directly (an `intent://` link naming
+  `com.android.vending`, `utm_medium=app`). If the page is still in front 1.5 s later (no blur, not hidden), the
+  app didn't open, usually because the frame forbids app links (no `allow-popups`), so a sheet offers
+  Try again plus "search ShrinkIt". Verified on a Pixel 6 Pro (Chrome) with a sandboxed test frame.
+- **Everything else:** the Play buttons open a sheet with a QR code to scan with an Android phone (`utm_medium=qr`).
+
+Ordinary visits are unchanged and never load the QR encoder. To regenerate `assets/vendor/qrcode.min.js`: `npm pack qrcode-generator@1.4.4`, then minify
 `package/qrcode.js` with esbuild and keep the license line at the top.
 
 ---

@@ -208,11 +208,13 @@
   });
 })();
 
-/* ── Inside another site's frame: a QR code instead of Play ── */
+/* ── Inside another site's frame: Play Store app or QR code ── */
 // Ad sites such as FireFaucet show this page in a sandboxed frame. A tab opened from it is sandboxed
-// too, and Google Play refuses to load in one (ERR_BLOCKED_BY_RESPONSE). So inside a frame the Play
-// buttons open a sheet instead: a QR code to scan with a phone, or on Android a link that opens the
-// Play Store app. Both keep the button's utm_source and utm_campaign, with utm_medium "qr" or "app".
+// too, and Google Play refuses to load in one (ERR_BLOCKED_BY_RESPONSE). So inside a frame:
+// - Android: the Play buttons open the Play Store app directly. If the page is still in front 1.5 s
+//   later, the app didn't open (the frame can forbid it), so a sheet offers Try again and search.
+// - Elsewhere: the Play buttons open a sheet with a QR code to scan with an Android phone.
+// Both keep the button's utm_source and utm_campaign, with utm_medium "app" or "qr".
 (function () {
   let framed;
   try { framed = window.self !== window.top; } catch (e) { framed = true; }
@@ -241,11 +243,11 @@
     '</button>' +
     '<h2 id="qr-title" class="qr-title">Get ShrinkIt on your phone</h2>' +
     (isAndroid
-      ? '<p class="qr-lede">ShrinkIt opens in the Play Store app.</p>' +
-        '<a class="btn btn-primary btn-large qr-app">Open in Play Store</a>'
+      ? '<p class="qr-lede">The Play Store didn\'t open from this page. Open the Play Store app and search <strong>ShrinkIt</strong>.</p>' +
+        '<a class="btn btn-primary btn-large qr-app">Try again</a>'
       : '<p class="qr-lede">Scan with your Android phone\'s camera to open ShrinkIt on Google Play.</p>' +
-        '<div class="qr-code" role="img" aria-label="QR code that opens ShrinkIt on Google Play"></div>') +
-    '<p class="qr-hint">Or search <strong>ShrinkIt</strong> on Google Play.</p>' +
+        '<div class="qr-code" role="img" aria-label="QR code that opens ShrinkIt on Google Play"></div>' +
+        '<p class="qr-hint">Or search <strong>ShrinkIt</strong> on Google Play.</p>') +
     '</div>';
   document.body.appendChild(sheet);
 
@@ -259,6 +261,35 @@
     referrer.set('utm_medium', medium);
     url.searchParams.set('referrer', referrer.toString());
     return url;
+  }
+
+  // An intent: link names the Play Store app, so Android skips the app chooser when another store
+  // also claims market:// links. The referrer travels in the market:// data URI.
+  function playStoreAppLink(anchor) {
+    return 'intent://details' + playLink(anchor, 'app').search +
+      '#Intent;scheme=market;package=com.android.vending;end';
+  }
+
+  // Opening the app sends this page to the background (blur, then hidden). If neither happens within
+  // 1.5 s, the app didn't open, so show the sheet.
+  let trying = false;
+  function tryPlayStore(anchor) {
+    if (trying) return;
+    trying = true;
+    let left = false;
+    const leave = () => { left = true; };
+    const hidden = () => { if (document.hidden) left = true; };
+    window.addEventListener('blur', leave);
+    window.addEventListener('pagehide', leave);
+    document.addEventListener('visibilitychange', hidden);
+    window.location.href = playStoreAppLink(anchor);
+    setTimeout(() => {
+      window.removeEventListener('blur', leave);
+      window.removeEventListener('pagehide', leave);
+      document.removeEventListener('visibilitychange', hidden);
+      trying = false;
+      if (!left && !document.hidden) open(anchor);
+    }, 1500);
   }
 
   function drawCode(text) {
@@ -289,8 +320,7 @@
   function open(anchor) {
     opener = anchor;
     if (appLink) {
-      const url = playLink(anchor, 'app');
-      appLink.href = 'market://details' + url.search;
+      appLink.href = playStoreAppLink(anchor);
     } else {
       drawCode(playLink(anchor, 'qr').toString());
     }
@@ -304,10 +334,11 @@
   }
 
   buttons.forEach((a) => {
-    a.setAttribute('aria-haspopup', 'dialog');
+    if (!isAndroid) a.setAttribute('aria-haspopup', 'dialog');
     a.addEventListener('click', (e) => {
       e.preventDefault();
-      open(a);
+      if (isAndroid) tryPlayStore(a);
+      else open(a);
     });
   });
 
