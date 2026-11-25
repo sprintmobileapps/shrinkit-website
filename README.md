@@ -24,6 +24,7 @@ shrinkit-website/
 └── assets/
     ├── style.css           # All styles (design system from app Color.kt)
     ├── main.js             # Nav scroll, canvas animation, FAQ accordion, campaign tags, QR sheet
+    ├── analytics.js        # Google Analytics 4 (Firebase web app): visits + Play button taps
     ├── vendor/qrcode.min.js  # qrcode-generator 1.4.4 (MIT), loaded only inside other sites' frames
     ├── screens/            # Real app captures for the "See it in action" gallery (WebP)
     ├── icon-512.png        # App icon
@@ -82,6 +83,30 @@ when the page is framed:
 
 Ordinary visits are unchanged and never load the QR encoder. To regenerate `assets/vendor/qrcode.min.js`: `npm pack qrcode-generator@1.4.4`, then minify
 `package/qrcode.js` with esbuild and keep the license line at the top.
+
+### Analytics (Firebase / Google Analytics 4)
+
+`assets/analytics.js` sends visits and Play button taps to the **ShrinkIt website** web app in the ShrinkIt
+Firebase project (`sprintapps-ab6ba`, measurement ID `G-YM7CRDZ9WM`). Reports: Firebase console → Analytics,
+or Google Analytics with the stream filter set to the web stream.
+
+- `page_view`: automatic. The session source comes from the page URL's `utm_*` tags, else the referring site.
+- `play_store_click`: `button` (nav, hero, cta, footer, sheet), `method` (link, app, qr, app_retry),
+  `source` (`utm_source`, else the referring site, else `direct`; kept for the tab, so later pages keep it),
+  `campaign`, `framed` (yes/no), `link_url`.
+- Loads only on `sprintmobileapps.github.io`; never on local previews, inside the app (`?embed=app`), or when
+  the browser sends Global Privacy Control. No ad features; no analytics cookies in the EEA, UK and Switzerland.
+- Inside another site's frame (FireFaucet), gtag.js sends nothing while cookies are allowed, so there it runs
+  cookieless (consent `analytics_storage: denied`): each page view counts as a new visitor, and Google may keep
+  such hits out of standard reports (they feed modelling, which needs more traffic than we have). The reliable
+  FireFaucet number is the install referrer (`utm_source=firefaucet`) in Play Console and the app's Firebase.
+- Debug: open a live URL with `?ga_debug=1` and watch Firebase → Analytics → DebugView.
+- Custom parameters show in reports only after they're registered as custom dimensions in Google Analytics
+  (Admin → Custom definitions, event scope): `button`, `method`, `source`, `campaign`, `framed`.
+
+Only the measurement ID is in this repo. It's public by design. Don't add the Firebase web config
+(`apiKey` etc.) or any `google-services.json`: gtag.js doesn't need them. If the privacy disclosure in
+`privacy-policy.html` ("This Website") stops matching what's logged, update it.
 
 ---
 
