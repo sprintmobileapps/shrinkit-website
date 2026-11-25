@@ -92,8 +92,8 @@ or Google Analytics with the stream filter set to the web stream.
 
 - `page_view`: automatic. The session source comes from the page URL's `utm_*` tags, else the referring site.
 - `play_store_click`: `button` (nav, hero, cta, footer, sheet), `method` (link, app, qr, app_retry),
-  `source` (`utm_source`, else the referring site, else `direct`; kept for the tab, so later pages keep it),
-  `campaign`, `framed` (yes/no), `link_url`.
+  `visit_source` (`utm_source`, else the referring site, else `direct`; kept for the tab, so later pages keep it),
+  `visit_campaign`, `link_url`. A `method` other than `link` means the page was inside another site's frame.
 - Loads only on `sprintmobileapps.github.io`; never on local previews, inside the app (`?embed=app`), or when
   the browser sends Global Privacy Control. No ad features; no analytics cookies in the EEA, UK and Switzerland.
 - Inside another site's frame (FireFaucet), gtag.js sends nothing while cookies are allowed, so there it runs
@@ -102,7 +102,9 @@ or Google Analytics with the stream filter set to the web stream.
   FireFaucet number is the install referrer (`utm_source=firefaucet`) in Play Console and the app's Firebase.
 - Debug: open a live URL with `?ga_debug=1` and watch Firebase → Analytics → DebugView.
 - Custom parameters show in reports only after they're registered as custom dimensions in Google Analytics
-  (Admin → Custom definitions, event scope): `button`, `method`, `source`, `campaign`, `framed`.
+  (Admin → Custom definitions, event scope): `button`, `visit_source`, `visit_campaign`. `method`
+  and `link_url` already have built-in dimensions (Method, Link URL). Not `source`/`campaign`: those names
+  clash with Google Analytics' own traffic-source dimensions.
 
 Only the measurement ID is in this repo. It's public by design. Don't add the Firebase web config
 (`apiKey` etc.) or any `google-services.json`: gtag.js doesn't need them. If the privacy disclosure in

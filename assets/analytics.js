@@ -10,7 +10,9 @@
 // - page_view (automatic). Google Analytics reads utm_source/utm_medium/utm_campaign from the page URL,
 //   or the referring site, as the session's source.
 // - play_store_click on every Play button: button (nav, hero, cta, footer, sheet), method (link, app,
-//   qr, app_retry), source (utm_source, else the referring site, else "direct"), campaign, framed.
+//   qr, app_retry), visit_source (utm_source, else the referring site, else "direct"), visit_campaign.
+//   Named visit_* because Google Analytics already has built-in source and campaign dimensions. A method
+//   other than "link" means the page was inside another site's frame.
 //
 // Off inside the app's own viewer (?embed=app), on local previews, and for visitors whose browser sends
 // Global Privacy Control. Add ?ga_debug=1 to a live URL to watch the events in Firebase DebugView.
@@ -106,9 +108,8 @@
     gtag('event', 'play_store_click', {
       button: button,
       method: retry ? 'app_retry' : !framed ? 'link' : isAndroid ? 'app' : 'qr',
-      source: landing.source || 'direct',
-      campaign: landing.campaign || '',
-      framed: framed ? 'yes' : 'no',
+      visit_source: landing.source || 'direct',
+      visit_campaign: landing.campaign || '',
       link_url: a.href
     });
   }, true);
