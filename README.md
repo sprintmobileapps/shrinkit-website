@@ -23,7 +23,8 @@ shrinkit-website/
 ├── README.md               # This file
 └── assets/
     ├── style.css           # All styles (design system from app Color.kt)
-    ├── main.js             # Nav scroll, canvas animation, FAQ accordion
+    ├── main.js             # Nav scroll, canvas animation, FAQ accordion, campaign tags, QR sheet
+    ├── vendor/qrcode.min.js  # qrcode-generator 1.4.4 (MIT), loaded only inside other sites' frames
     ├── screens/            # Real app captures for the "See it in action" gallery (WebP)
     ├── icon-512.png        # App icon
     └── og-image.png        # Social-share image, 1200×630 (see below)
@@ -59,6 +60,22 @@ Replace `YOUR_GITHUB_USERNAME` in these two files with your actual GitHub userna
 ## Setting the Play Store link
 
 The Google Play URL `https://play.google.com/store/apps/details?id=com.sprintapps.shrinkit` is used throughout. Once your app is published, this URL is live. Search for `play.google.com/store/apps` in both HTML files to find every occurrence.
+
+### Campaign links
+
+Each Play button on the homepage carries an install referrer: `utm_source=website`, `utm_medium` = the button
+(`nav`, `hero`, `cta`, `footer`), `utm_campaign=site`. For a paid placement, link to the site with its own source,
+e.g. `https://sprintmobileapps.github.io/shrinkit-website/?utm_source=firefaucet` (optionally `&utm_campaign=…`);
+`main.js` swaps that source into every button.
+
+### Inside another site's frame (ad networks)
+
+Sites such as FireFaucet show the page in a sandboxed iframe. Tabs opened from it inherit the sandbox, and Google
+Play refuses to load in a sandboxed tab (`ERR_BLOCKED_BY_RESPONSE`, from Play's Cross-Origin-Opener-Policy). So
+when the page is framed, the Play buttons open a sheet instead: a QR code on computers (`utm_medium=qr`) and an
+"Open in Play Store" `market://` link on Android (`utm_medium=app`). Ordinary visits are unchanged and never load
+the QR encoder. To regenerate `assets/vendor/qrcode.min.js`: `npm pack qrcode-generator@1.4.4`, then minify
+`package/qrcode.js` with esbuild and keep the license line at the top.
 
 ---
 
