@@ -188,6 +188,26 @@
   });
 })();
 
+/* ── Campaign tags (?utm_source=…&utm_campaign=…) ──────────── */
+// A paid link such as /?utm_source=firefaucet swaps "website" for that source in every Play button's
+// install referrer, so the installs show up under their own source in Play Console and Firebase.
+// utm_medium keeps naming the button (nav, hero, cta, footer); utm_campaign stays "site" unless given.
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  const clean = (v) => (v || '').toLowerCase().replace(/[^a-z0-9_.-]/g, '').slice(0, 40);
+  const source = clean(params.get('utm_source'));
+  if (!source) return;
+  const campaign = clean(params.get('utm_campaign'));
+  document.querySelectorAll('a[href^="https://play.google.com/store/apps/details"]').forEach((a) => {
+    const url = new URL(a.href);
+    const referrer = new URLSearchParams(url.searchParams.get('referrer') || '');
+    referrer.set('utm_source', source);
+    if (campaign) referrer.set('utm_campaign', campaign);
+    url.searchParams.set('referrer', referrer.toString());
+    a.href = url.toString();
+  });
+})();
+
 /* ── In-app mode (?embed=app; the class is set in <head>) ──── */
 // The app shows its own title bar and close button, so the page is read-only there: links become
 // plain text, except email links (the app opens a mail app for those), and contents links scroll
