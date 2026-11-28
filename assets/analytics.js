@@ -1,8 +1,8 @@
 /* ShrinkIt Website — analytics.js */
 
 /* ── Visits and Play button clicks (Google Analytics 4) ────── */
-// Data goes to the "ShrinkIt website" web app in the ShrinkIt Firebase project (sprintapps-ab6ba), so it
-// shows up in Firebase Analytics next to the app. Only gtag.js loads, with the measurement ID below. That
+// Data goes to its own Google Analytics 4 property ("ShrinkIt website"), kept apart from the app's Firebase
+// property so web visitors never mix into the app's user counts. Only gtag.js loads, with the measurement ID below. That
 // ID is public by design (every page that uses Google Analytics carries one). There is no API key or other
 // secret here, and none belongs in this repo.
 //
@@ -15,9 +15,9 @@
 //   other than "link" means the page was inside another site's frame.
 //
 // Off inside the app's own viewer (?embed=app), on local previews, and for visitors whose browser sends
-// Global Privacy Control. Add ?ga_debug=1 to a live URL to watch the events in Firebase DebugView.
+// Global Privacy Control. Add ?ga_debug=1 to a live URL to watch the events in Google Analytics DebugView.
 (function () {
-  var MEASUREMENT_ID = 'G-YM7CRDZ9WM';
+  var MEASUREMENT_ID = 'G-92RVXNQV5N';
   var LIVE_HOST = 'sprintmobileapps.github.io';
 
   if (document.documentElement.classList.contains('embedded')) return;

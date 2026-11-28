@@ -84,11 +84,12 @@ when the page is framed:
 Ordinary visits are unchanged and never load the QR encoder. To regenerate `assets/vendor/qrcode.min.js`: `npm pack qrcode-generator@1.4.4`, then minify
 `package/qrcode.js` with esbuild and keep the license line at the top.
 
-### Analytics (Firebase / Google Analytics 4)
+### Analytics (Google Analytics 4)
 
-`assets/analytics.js` sends visits and Play button taps to the **ShrinkIt website** web app in the ShrinkIt
-Firebase project (`sprintapps-ab6ba`, measurement ID `G-YM7CRDZ9WM`). Reports: Firebase console → Analytics,
-or Google Analytics with the stream filter set to the web stream.
+`assets/analytics.js` sends visits and Play button taps to the standalone **ShrinkIt website** Google Analytics 4
+property (measurement ID `G-92RVXNQV5N`), kept out of the app's Firebase project so web visitors don't show up in
+the app's Firebase Analytics dashboard. Reports: analytics.google.com → the ShrinkIt website property.
+(Visits from 26 to 28 Nov 2026 went to the old web stream `G-YM7CRDZ9WM` in Firebase project `sprintapps-ab6ba`.)
 
 - `page_view`: automatic. The session source comes from the page URL's `utm_*` tags, else the referring site.
 - `play_store_click`: `button` (nav, hero, cta, footer, sheet), `method` (link, app, qr, app_retry),
